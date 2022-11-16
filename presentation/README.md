@@ -30,3 +30,7 @@ PAY_AMT4: Amount of previous payment in June, 2005 (NT dollar) \
 PAY_AMT5: Amount of previous payment in May, 2005 (NT dollar) \
 PAY_AMT6: Amount of previous payment in April, 2005 (NT dollar) \
 default.payment.next.month: Default payment (1=yes, 0=no) \
+
+## 文件说明
+ * feature.py 数据处理文件，生成feature.csv
+ * pre.py 预测模型，利用SHAP，LIME方法进行可解释

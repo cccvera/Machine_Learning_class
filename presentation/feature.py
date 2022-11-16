@@ -19,8 +19,9 @@ def log_con(dataframe,features):
 
 
 data = pd.read_csv('UCI_Credit_Card.csv')
-features = data.iloc[:, 0:-1]
+features = data.iloc[:,1:-1]
 x_label = data['ID']
+y_label = data['default.payment.next.month']
 PAY = data.iloc[:,6:12]
 BILL = data.iloc[:,12:18]
 AMT =  data.iloc[:,18:-1]
@@ -64,8 +65,10 @@ plt.savefig('1-1.png')
 plt.show()
 
 heat = features.corr()
-plt.figure(figsize=(16, 9))
+plt.figure(figsize=(32, 18))
 sns.heatmap(heat, annot=True)
 plt.savefig('1-2.png')
 plt.show()
+features = pd.merge(features,y_label,left_index=True,right_index=True)
+features = pd.merge(x_label,features,left_index=True,right_index=True)
 features.to_csv('features.csv',index=False)
